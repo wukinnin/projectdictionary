@@ -3,12 +3,11 @@
 
 *README shamelessly AI-Generated*
 
-
-I need your guidance for this project im building. I am creating a python program for a *word dictionary.* 
+<!-- I need your guidance for this project im building. I am creating a python program for a *word dictionary.* 
 Here's the kicker:
 The program itself is in python.
 It contains an interactive menu in CLI.
-You should know that the words themselves are stored in the data type dictionary.
+You should know that the words themselves are stored in the data type dictionary. -->
 
 ---
 Here's the simplified roadmap:
