@@ -9,9 +9,6 @@ The program itself is in python.
 It contains an interactive menu in CLI.
 You should know that the words themselves are stored in the data type dictionary. -->
 
----
-Here's the simplified roadmap:
-
 ### **1. Define the Project**
    - **Goal**: Build a Python program that acts as a word dictionary with options to add, delete, edit, display, and search words, depending on their part of speech.
    - **Key Features**:
