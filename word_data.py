@@ -66,7 +66,7 @@ word_dict = {
     },
 
     "kind": {
-        "meanng": "Being friendly, generous, and considerate.",
+        "meaning": "Being friendly, generous, and considerate.",
         "part_of_speech": "adjective",
         "example_sentence": "He is a kind person who helps others.",
         "comparative": {
@@ -128,7 +128,7 @@ word_dict = {
     },
 
     "beautiful": {
-        "meanng": "Pleasing the senses or mind aesthetically.",
+        "meaning": "Pleasing the senses or mind aesthetically.",
         "part_of_speech": "adjective",
         "example_sentence": "The sunset is beautiful.",
         "comparative": {
