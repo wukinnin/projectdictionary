@@ -79,7 +79,7 @@ word_dict = {
         }
     },
 
-     "happily": {
+    "happily": {
         "meaning": "In a happy manner.",
         "part_of_speech": "adverb",
         "example_sentence": "They danced happily at the celebration.",
@@ -169,7 +169,28 @@ word_dict = {
         }
     },
 
-    {
+    "imagine": {
+        "meaning": "To form a mental image or concept of something.",
+        "part_of_speech": "verb",
+        "example_sentence": "Can you imagine living in another country?",
+        "tenses": {
+            "past": {
+                "form": "imagined",
+                "sentence": "She imagined a world without war."
+            },
+            "present": {
+                "form": "imagine",
+                "sentence": "They imagine their future together."
+            },
+            "future": {
+                "form": "will imagine",
+                "sentence": "I will imagine the possibilities."
+            }
+        }
+    },
+
+
+
     "child": {
         "meaning": "A young human being below the age of puberty.",
         "part_of_speech": "noun",
@@ -322,7 +343,6 @@ word_dict = {
         }
     },
 
-    {
     "friendship": {
         "meaning": "A relationship between friends.",
         "part_of_speech": "noun",
@@ -474,17 +494,281 @@ word_dict = {
             "sentence": "Their confidences in each other helped them succeed."
         }
     },
+    
+    "calm": {
+    "meaning": "Not showing or feeling nervousness, anger, or other emotions.",
+    "part_of_speech": "adjective",
+    "example_sentence": "He remained calm during the storm.",
+    "comparative": {
+        "form": "calmer",
+        "sentence": "She is calmer than she was before."
+    },
+    "superlative": {
+        "form": "calmest",
+        "sentence": "He is the calmest person I know."
+    }
+},
 
+"friendlily": {
+    "meaning": "In a friendly manner.",
+    "part_of_speech": "adverb",
+    "example_sentence": "She greeted everyone friendlily at the gathering.",
+    "comparative": {
+        "form": "more friendlily",
+        "sentence": "He spoke more friendlily than usual today."
+    },
+    "superlative": {
+        "form": "most friendlily",
+        "sentence": "She acted most friendlily among all the guests."
+    }
+},
 
+"respect": {
+    "meaning": "A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements.",
+    "part_of_speech": "noun",
+    "example_sentence": "He earned my respect through his hard work.",
+    "singular": {
+        "form": "respect",
+        "sentence": "Respect is essential in any relationship."
+    },
+    "plural": {
+        "form": "respects",
+        "sentence": "People have different respects for various leaders."
+    }
+},
 
-        
-        
+"care": {
+    "meaning": "To feel concern or interest; to attach importance to something.",
+    "part_of_speech": "verb",
+    "example_sentence": "I care about your well-being.",
+    "tenses": {
+        "past": {
+            "form": "cared",
+            "sentence": "She cared for her pets with love."
+        },
+        "present": {
+            "form": "cares",
+            "sentence": "He cares deeply for his family."
+        },
+        "future": {
+            "form": "will care",
+            "sentence": "I will care for my parents as they age."
+        }
+    }
+},
 
+"surprise": {
+    "meaning": "An unexpected event or fact.",
+    "part_of_speech": "noun",
+    "example_sentence": "The surprise party was a success.",
+    "singular": {
+        "form": "surprise",
+        "sentence": "The surprise was well-planned."
+    },
+    "plural": {
+        "form": "surprises",
+        "sentence": "Life is full of surprises."
+    }
+},
 
+"excite": {
+    "meaning": "To cause strong feelings of enthusiasm and eagerness.",
+    "part_of_speech": "verb",
+    "example_sentence": "The announcement will excite the fans.",
+    "tenses": {
+        "past": {
+            "form": "excited",
+            "sentence": "She was excited about her birthday party."
+        },
+        "present": {
+            "form": "excites",
+            "sentence": "This news excites everyone."
+        },
+        "future": {
+            "form": "will excite",
+            "sentence": "The movie will excite the audience."
+        }
+    }
+},
 
+"creative": {
+    "meaning": "Relating to or involving the use of the imagination or original ideas.",
+    "part_of_speech": "adjective",
+    "example_sentence": "He has a creative mind.",
+    "comparative": {
+        "form": "more creative",
+        "sentence": "She is more creative than her peers."
+    },
+    "superlative": {
+        "form": "most creative",
+        "sentence": "He is the most creative designer in the firm."
+    }
+},
 
+"freely": {
+    "meaning": "Without restriction; openly.",
+    "part_of_speech": "adverb",
+    "example_sentence": "She expressed her opinions freely.",
+    "comparative": {
+        "form": "more freely",
+        "sentence": "He shares ideas more freely after the meeting."
+    },
+    "superlative": {
+        "form": "most freely",
+        "sentence": "She speaks most freely when among friends."
+    }
+},
 
-    ## add the rest of the other 46 words
- 
+"adventure": {
+    "meaning": "An unusual and exciting experience or activity.",
+    "part_of_speech": "noun",
+    "example_sentence": "Their adventure in the mountains was unforgettable.",
+    "singular": {
+        "form": "adventure",
+        "sentence": "Every adventure teaches us something new."
+    },
+    "plural": {
+        "form": "adventures",
+        "sentence": "They have shared many adventures together."
+    }
+},
+
+"choose": {
+    "meaning": "To pick out or select from a number of alternatives.",
+    "part_of_speech": "verb",
+    "example_sentence": "You can choose any book you like.",
+    "tenses": {
+        "past": {
+            "form": "chose",
+            "sentence": "She chose the red dress for the party."
+        },
+        "present": {
+            "form": "chooses",
+            "sentence": "He chooses his words carefully."
+        },
+        "future": {
+            "form": "will choose",
+            "sentence": "They will choose a leader next week."
+        }
+    }
+},
+
+"exciting": {
+    "meaning": "Causing great enthusiasm and eagerness.",
+    "part_of_speech": "adjective",
+    "example_sentence": "The roller coaster ride was exciting.",
+    "comparative": {
+        "form": "more exciting",
+        "sentence": "This game is more exciting than the last one."
+    },
+    "superlative": {
+        "form": "most exciting",
+        "sentence": "This is the most exciting match of the season."
+    }
+},
+
+"eagerly": {
+    "meaning": "With a keen or enthusiastic desire.",
+    "part_of_speech": "adverb",
+    "example_sentence": "The children awaited the party eagerly.",
+    "comparative": {
+        "form": "more eagerly",
+        "sentence": "She looked forward to the holidays more eagerly than last year."
+    },
+    "superlative": {
+        "form": "most eagerly",
+        "sentence": "He waited most eagerly for the results."
+    }
+},
+
+"comfort": {
+    "meaning": "A state of physical ease and freedom from pain or constraint.",
+    "part_of_speech": "noun",
+    "example_sentence": "The couch offers great comfort after a long day.",
+    "singular": {
+        "form": "comfort",
+        "sentence": "Comfort is important in our daily lives."
+    },
+    "plural": {
+        "form": "comforts",
+        "sentence": "Many comforts can be found in simple things."
+    }
+},
+
+"simplify": {
+    "meaning": "To make something simpler or easier to do or understand.",
+    "part_of_speech": "verb",
+    "example_sentence": "She aims to simplify the process for everyone.",
+    "tenses": {
+        "past": {
+            "form": "simplified",
+            "sentence": "He simplified the instructions for clarity."
+        },
+        "present": {
+            "form": "simplifies",
+            "sentence": "This tool simplifies the task significantly."
+        },
+        "future": {
+            "form": "will simplify",
+            "sentence": "They will simplify the steps next time."
+        }
+    }
+},
+
+"wise": {
+    "meaning": "Having or showing experience, knowledge, and good judgment.",
+    "part_of_speech": "adjective",
+    "example_sentence": "He gave wise advice during the meeting.",
+    "comparative": {
+        "form": "wiser",
+        "sentence": "She seems wiser after her experiences."
+    },
+    "superlative": {
+        "form": "wisest",
+        "sentence": "He is known as the wisest elder in the village."
+    }
+},
+
+"quick": {
+    "meaning": "Done with speed; fast.",
+    "part_of_speech": "adjective",
+    "example_sentence": "She took a quick shower before dinner.",
+    "comparative": {
+        "form": "quicker",
+        "sentence": "This route is quicker than the other one."
+    },
+    "superlative": {
+        "form": "quickest",
+        "sentence": "He is the quickest runner on the team."
+    }
+},
+
+"frequent": {
+    "meaning": "Occurring or done on many occasions.",
+    "part_of_speech": "adjective",
+    "example_sentence": "They are frequent visitors to the museum.",
+    "comparative": {
+        "form": "more frequent",
+        "sentence": "My trips to the city are more frequent than yours."
+    },
+    "superlative": {
+        "form": "most frequent",
+        "sentence": "She is the most frequent attendee at the meetings."
+    }
+},
+
+"suddenly": {
+    "meaning": "Quickly and unexpectedly.",
+    "part_of_speech": "adverb",
+    "example_sentence": "The car stopped suddenly in front of us.",
+    "comparative": {
+        "form": "more suddenly",
+        "sentence": "The storm arrived more suddenly than we anticipated."
+    },
+    "superlative": {
+        "form": "most suddenly",
+        "sentence": "The news changed everything most suddenly for them."
+    }
+}
     
 }
