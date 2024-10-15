@@ -227,6 +227,5 @@ def search_word(word):
     if word not in word_dict:
         print(f"Word '{word}' not present in dictionary.")
     else:
-        print(f"Word '{word}' is present in dictionary.")
         print_word(word)
     
