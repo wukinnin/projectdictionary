@@ -7,36 +7,39 @@ def print_word(word):
     details = word_dict[word]
     print(f"\n{word}")
     print(f"  Meaning: {details['meaning']}")
-    print(F"  Example Sentence: {details['example_sentence']}")
+    print(f"  Example Sentence: {details['example_sentence']}")
     print(f"  Part of Speech: {details['part_of_speech']}")
     part_of_speech = details['part_of_speech']
 
     # ADJECTIVE
     if part_of_speech == "adjective":
-        print(f"  Comparative: {details['comparative']['form']}")
-        print(f"    Sentence: {details['comparative']['sentence']}")
-        print(f"  Superlative: {details['superlative']['form']}")
-        print(f"    Sentence: {details['superlative']['sentence']}")
-        # ADVERB
+        print(f"  Comparative: {details.get('comparative', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('comparative', {}).get('sentence', 'N/A')}")
+        print(f"  Superlative: {details.get('superlative', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('superlative', {}).get('sentence', 'N/A')}")
+    
+    # ADVERB
     elif part_of_speech == "adverb":
-        print(f"  Comparative: {details['comparative']['form']}")
-        print(f"    Sentence: {details['comparative']['sentence']}")
-        print(f"  Superlative: {details['superlative']['form']}")
-        print(f"    Sentence: {details['superlative']['sentence']}")
+        print(f"  Comparative: {details.get('comparative', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('comparative', {}).get('sentence', 'N/A')}")
+        print(f"  Superlative: {details.get('superlative', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('superlative', {}).get('sentence', 'N/A')}")
+    
     # NOUN
     elif part_of_speech == "noun":
-        print(f"  Singular: {details['singular']['form']}")
-        print(f"    Sentence: {details['singular']['sentence']}")
-        print(f"  Plural: {details['plural']['form']}")
-        print(f"    Sentence: {details['plural']['sentence']}")
+        print(f"  Singular: {details.get('singular', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('singular', {}).get('sentence', 'N/A')}")
+        print(f"  Plural: {details.get('plural', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('plural', {}).get('sentence', 'N/A')}")
+    
     # VERB
     elif part_of_speech == "verb":
-        print(f"  Past Tense: {details['tenses']['past']['form']}")
-        print(f"    Sentence: {details['tenses']['past']['sentence']}")
-        print(f"  Present Tense: {details['tenses']['present']['form']}")
-        print(f"    Sentence: {details['tenses']['present']['sentence']}")
-        print(f"  Future Tense: {details['tenses']['future']['form']}")
-        print(f"    Sentence: {details['tenses']['future']['sentence']}")
+        print(f"  Past Tense: {details.get('tenses', {}).get('past', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('tenses', {}).get('past', {}).get('sentence', 'N/A')}")
+        print(f"  Present Tense: {details.get('tenses', {}).get('present', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('tenses', {}).get('present', {}).get('sentence', 'N/A')}")
+        print(f"  Future Tense: {details.get('tenses', {}).get('future', {}).get('form', 'N/A')}")
+        print(f"    Sentence: {details.get('tenses', {}).get('future', {}).get('sentence', 'N/A')}")
 
 ##################################################################################        
 # 1 - add_word()
@@ -203,15 +206,20 @@ def edit_word(word):
 
     print(f"\nWord '{word}' has been updated.")
 
+
 ##################################################################################
 # 4 - display_word()
 def display_words():
     # by default: arrange in ascending
     sorted_words = sorted(word_dict.keys()) 
+    # initialize a counter for the index
+    index = 1
+
     # loop statement to loop through all the word_data
     for word in sorted_words:
+        print(f"\n({index})")
         print_word(word)
-
+        index += 1  
 ##################################################################################
 # 5 - search_word()
 def search_word(word):
