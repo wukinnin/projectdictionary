@@ -13,33 +13,33 @@ def print_word(word):
 
     # ADJECTIVE
     if part_of_speech == "adjective":
-        print(f"  Comparative: {details.get('comparative', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('comparative', {}).get('sentence', 'N/A')}")
-        print(f"  Superlative: {details.get('superlative', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('superlative', {}).get('sentence', 'N/A')}")
+        print(f"  Comparative: {details['comparative']['form']}")
+        print(f"    Sentence: {details['comparative']['sentence']}")
+        print(f"  Superlative: {details['superlative']['form']}")
+        print(f"    Sentence: {details['superlative']['sentence']}")
     
     # ADVERB
     elif part_of_speech == "adverb":
-        print(f"  Comparative: {details.get('comparative', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('comparative', {}).get('sentence', 'N/A')}")
-        print(f"  Superlative: {details.get('superlative', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('superlative', {}).get('sentence', 'N/A')}")
+        print(f"  Comparative: {details['comparative']['form']}")
+        print(f"    Sentence: {details['comparative']['sentence']}")
+        print(f"  Superlative: {details['superlative']['form']}")
+        print(f"    Sentence: {details['superlative']['sentence']}")
     
     # NOUN
     elif part_of_speech == "noun":
-        print(f"  Singular: {details.get('singular', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('singular', {}).get('sentence', 'N/A')}")
-        print(f"  Plural: {details.get('plural', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('plural', {}).get('sentence', 'N/A')}")
+        print(f"  Singular: {details['singular']['form']}")
+        print(f"    Sentence: {details['singular']['sentence']}")
+        print(f"  Plural: {details['plural']['form']}")
+        print(f"    Sentence: {details['plural']['sentence']}")
     
     # VERB
     elif part_of_speech == "verb":
-        print(f"  Past Tense: {details.get('tenses', {}).get('past', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('tenses', {}).get('past', {}).get('sentence', 'N/A')}")
-        print(f"  Present Tense: {details.get('tenses', {}).get('present', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('tenses', {}).get('present', {}).get('sentence', 'N/A')}")
-        print(f"  Future Tense: {details.get('tenses', {}).get('future', {}).get('form', 'N/A')}")
-        print(f"    Sentence: {details.get('tenses', {}).get('future', {}).get('sentence', 'N/A')}")
+        print(f"  Past Tense: {details['tenses']['past']['form']}")
+        print(f"    Sentence: {details['tenses']['past']['sentence']}")
+        print(f"  Present Tense: {details['tenses']['present']['form']}")
+        print(f"    Sentence: {details['tenses']['present']['sentence']}")
+        print(f"  Future Tense: {details['tenses']['future']['form']}")
+        print(f"    Sentence: {details['tenses']['future']['sentence']}")
 
 ##################################################################################        
 # 1 - add_word()
@@ -133,79 +133,146 @@ def delete_word(word):
 ##################################################################################
 # 3 - edit_word
 def edit_word(word):
-    # Check if word does not exist in word_data
+    # Check if word does not exist in word_dict
     if word not in word_dict:
-        print(f"Word '{word}' not present in dictionary.")
-        return # exit the method
-    # Get the current details of the word and display
+        print(f"Word '{word}' not present in the dictionary.")
+        return  # exit the method
+
+    # Get the details and display
     details = word_dict[word]
-    print_word(word)
-    
+    print_word(word) 
+
     # Edit the meaning
     new_meaning = input(f"\nEnter new meaning (or press Enter to keep current): ")
     if new_meaning:
         word_dict[word]['meaning'] = new_meaning
+    
     # Edit the example sentence
     new_example = input(f"Enter new example sentence (or press Enter to keep current): ")
-    if new_example:
+    if new_example: 
         word_dict[word]['example_sentence'] = new_example
 
     # Edit the part of speech
     current_part_of_speech = details['part_of_speech']
     new_part_of_speech = input(f"Enter new part of speech \ne.g. adjective, adverb, noun, verb \n(or press Enter to keep current): ")
-    if new_part_of_speech:
-        word_dict[word]['part_of_speech'] = new_part_of_speech
-        part_of_speech = new_part_of_speech
-    else:
-        part_of_speech = current_part_of_speech
-    # Remove old part of speech before updating
-    if current_part_of_speech == "adjective" or current_part_of_speech == "adverb":
-        word_dict[word].pop('comparative', None)
-        word_dict[word].pop('superlative', None)
-    elif current_part_of_speech == "noun":
-        word_dict[word].pop('singular', None)
-        word_dict[word].pop('plural', None)
-    elif current_part_of_speech == "verb":
-        word_dict[word].pop('tenses', None)
+    part_of_speech = new_part_of_speech or current_part_of_speech
+    word_dict[word]['part_of_speech'] = part_of_speech  # keep current
 
     # ADJECTIVE
     if part_of_speech == "adjective":
+        # Get the current comparative and superlative forms
+        current_comparative = details.get('comparative', {}).get('form', '')
+        current_comparative_sentence = details.get('comparative', {}).get('sentence', '')
+        current_superlative = details.get('superlative', {}).get('form', '')
+        current_superlative_sentence = details.get('superlative', {}).get('sentence', '')
+
+        # Edit new or keep current
         new_comparative = input(f"Enter new comparative form (or press Enter to keep current): ")
-        if new_comparative:
-            word_dict[word]['comparative'] = {"form": new_comparative, "sentence": input(f"Enter sentence for comparative form: ")}
-        new_superlative = input(f"Enter new superlative form (or press Enter to keep current): ")
-        if new_superlative:
-            word_dict[word]['superlative'] = {"form": new_superlative, "sentence": input(f"Enter sentence for superlative form: ")}
+        new_comparative_sentence = input(f"Enter sentence for comparative form (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['comparative'] = {
+            "form": new_comparative or current_comparative,
+            "sentence": new_comparative_sentence or current_comparative_sentence
+        }
+
+        # Edit new or keep current
+        new_superlative = input(f"Enter new superlative form (or press Enter to keep current: {current_superlative}): ")
+        new_superlative_sentence = input(f"Enter sentence for superlative form (or press Enter to keep current: {current_superlative_sentence}): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['superlative'] = {
+            "form": new_superlative or current_superlative,
+            "sentence": new_superlative_sentence or current_superlative_sentence
+        }
+    
     # ADVERB
     elif part_of_speech == "adverb":
+        current_comparative = details.get('comparative', {}).get('form', '')
+        current_comparative_sentence = details.get('comparative', {}).get('sentence', '')
+        current_superlative = details.get('superlative', {}).get('form', '')
+        current_superlative_sentence = details.get('superlative', {}).get('sentence', '')
+
+        # Edit new or keep current
         new_comparative = input(f"Enter new comparative form (or press Enter to keep current): ")
-        if new_comparative:
-            word_dict[word]['comparative'] = {"form": new_comparative, "sentence": input(f"Enter sentence for comparative form: ")}
+        new_comparative_sentence = input(f"Enter sentence for comparative form (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['comparative'] = {
+            "form": new_comparative or current_comparative,
+            "sentence": new_comparative_sentence or current_comparative_sentence
+        }
+
+        # Edit new or keep current
         new_superlative = input(f"Enter new superlative form (or press Enter to keep current): ")
-        if new_superlative:
-            word_dict[word]['superlative'] = {"form": new_superlative, "sentence": input(f"Enter sentence for superlative form: ")}
+        new_superlative_sentence = input(f"Enter sentence for superlative form (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['superlative'] = {
+            "form": new_superlative or current_superlative,
+            "sentence": new_superlative_sentence or current_superlative_sentence
+        }
+
     # NOUN
     elif part_of_speech == "noun":
+        current_singular = details.get('singular', {}).get('form', '')
+        current_singular_sentence = details.get('singular', {}).get('sentence', '')
+        current_plural = details.get('plural', {}).get('form', '')
+        current_plural_sentence = details.get('plural', {}).get('sentence', '')
+
+        # Edit new or keep current
         new_singular = input(f"Enter new singular form (or press Enter to keep current): ")
-        if new_singular:
-            word_dict[word]['singular'] = {"form": new_singular, "sentence": input(f"Enter sentence for singular form: ")}
+        new_singular_sentence = input(f"Enter sentence for singular form (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data    
+        word_dict[word]['singular'] = {
+            "form": new_singular or current_singular,
+            "sentence": new_singular_sentence or current_singular_sentence
+        }
+
+        # Edit new or keep current
         new_plural = input(f"Enter new plural form (or press Enter to keep current): ")
-        if new_plural:
-            word_dict[word]['plural'] = {"form": new_plural, "sentence": input(f"Enter sentence for plural form: ")}
+        new_plural_sentence = input(f"Enter sentence for plural form (or press Enter to keep current: ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['plural'] = {
+            "form": new_plural or current_plural,
+            "sentence": new_plural_sentence or current_plural_sentence
+        }
+
     # VERB
     elif part_of_speech == "verb":
+        current_past = details.get('tenses', {}).get('past', {}).get('form', '')
+        current_past_sentence = details.get('tenses', {}).get('past', {}).get('sentence', '')
+        current_present = details.get('tenses', {}).get('present', {}).get('form', '')
+        current_present_sentence = details.get('tenses', {}).get('present', {}).get('sentence', '')
+        current_future = details.get('tenses', {}).get('future', {}).get('form', '')
+        current_future_sentence = details.get('tenses', {}).get('future', {}).get('sentence', '')
+
+        # Edit new or keep current
         new_past = input(f"Enter new past tense (or press Enter to keep current): ")
-        if new_past:
-            word_dict[word]['tenses'] = {"past": {"form": new_past, "sentence": input(f"Enter sentence for past tense: ")}}
+        new_past_sentence = input(f"Enter sentence for past tense (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['tenses'] = {
+            "past": {
+                "form": new_past or current_past,
+                "sentence": new_past_sentence or current_past_sentence
+            }
+        }
+
+        # Edit new or keep current
         new_present = input(f"Enter new present tense (or press Enter to keep current): ")
-        if new_present:
-            word_dict[word]['tenses']['present'] = {"form": new_present, "sentence": input(f"Enter sentence for present tense: ")}
+        new_present_sentence = input(f"Enter sentence for present tense (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['tenses']['present'] = {
+            "form": new_present or current_present,
+            "sentence": new_present_sentence or current_present_sentence
+        }
+
+        # Edit new or keep current
         new_future = input(f"Enter new future tense (or press Enter to keep current): ")
-        if new_future:
-            word_dict[word]['tenses']['future'] = {"form": new_future, "sentence": input(f"Enter sentence for future tense: ")}
+        new_future_sentence = input(f"Enter sentence for future tense (or press Enter to keep current): ")
+        # or statement to keep either new edit or current data
+        word_dict[word]['tenses']['future'] = {
+            "form": new_future or current_future,
+            "sentence": new_future_sentence or current_future_sentence
+        }
 
     print(f"\nWord '{word}' has been updated.")
-
 
 ##################################################################################
 # 4 - display_word()
